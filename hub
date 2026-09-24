@@ -158,9 +158,9 @@ local function v26(p1)
 end
 t1.LogoFile = "Kiki" .. "/logo.png"
 t1.LogoFileLight = "Kiki" .. "/logo-light.png"
-local n1 = 780
-local n2 = 500
-local n3 = 170
+local n1 = 520
+local n2 = 360
+local n3 = 135
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
