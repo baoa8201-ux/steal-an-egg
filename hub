@@ -138,7 +138,7 @@ local t1 = {
 	OpenBind = Enum.KeyCode.RightShift,
 	FlightBind = Enum.KeyCode.F,
 	Tagline = "",
-	Status = "preview",
+	Status = "Free",
 	Game = "Steal an Egg",
 	Discord = "https://discord.gg/ZNwS8csX3j",
 	Website = "",
@@ -158,9 +158,9 @@ local function v26(p1)
 end
 t1.LogoFile = "Kiki" .. "/logo.png"
 t1.LogoFileLight = "Kiki" .. "/logo-light.png"
-local n1 = 620
-local n2 = 430
-local n3 = 152
+local n1 = 780
+local n2 = 500
+local n3 = 170
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -266,7 +266,7 @@ do
 
                 n1 = v45
                 n2 = v46
-                n3 = 128
+                n3 = 138
             end
 
             str = tostring(LocalPlayer and LocalPlayer.UserId or 0)
@@ -304,29 +304,29 @@ do
             t1.ConfigFile = (("Kira" .. "/" .. v26(t1.Game)) .. "/cache") .. "/" .. v26(LocalPlayer and LocalPlayer.Name or "Player") .. "-config.json"
             t2 = {
 				Dark = {
-					bg = Color3.fromRGB(12, 11, 10),
-					rail = Color3.fromRGB(16, 15, 14),
-					card = Color3.fromRGB(32, 30, 27),
-					lift = Color3.fromRGB(42, 39, 35),
-					fill = Color3.fromRGB(48, 44, 39),
-					line = Color3.fromRGB(58, 53, 46),
-					text = Color3.fromRGB(246, 242, 234),
-					dim = Color3.fromRGB(168, 158, 144),
-					mute = Color3.fromRGB(110, 102, 92),
-					accent = Color3.fromRGB(214, 168, 108),
-					accentDeep = Color3.fromRGB(92, 68, 36),
-					accentHover = Color3.fromRGB(228, 186, 128),
-					ink = Color3.fromRGB(22, 18, 14),
-					ok = Color3.fromRGB(138, 166, 128),
-					Kira = Color3.fromRGB(246, 242, 234)
+					bg = Color3.fromRGB(9, 10, 12),
+					rail = Color3.fromRGB(13, 15, 18),
+					card = Color3.fromRGB(20, 23, 27),
+					lift = Color3.fromRGB(28, 32, 37),
+					fill = Color3.fromRGB(34, 39, 45),
+					line = Color3.fromRGB(48, 54, 62),
+					text = Color3.fromRGB(238, 242, 246),
+					dim = Color3.fromRGB(157, 166, 177),
+					mute = Color3.fromRGB(96, 105, 116),
+					accent = Color3.fromRGB(210, 166, 100),
+					accentDeep = Color3.fromRGB(105, 76, 38),
+					accentHover = Color3.fromRGB(231, 190, 124),
+					ink = Color3.fromRGB(13, 14, 16),
+					ok = Color3.fromRGB(110, 181, 116),
+					Kira = Color3.fromRGB(238, 242, 246)
 				},
 				Light = {
-					bg = Color3.fromRGB(232, 226, 218),
-					rail = Color3.fromRGB(232, 226, 218),
-					card = Color3.fromRGB(252, 250, 246),
-					lift = Color3.fromRGB(242, 236, 228),
-					fill = Color3.fromRGB(224, 218, 208),
-					line = Color3.fromRGB(204, 196, 184),
+					bg = Color3.fromRGB(232, 235, 238),
+					rail = Color3.fromRGB(224, 228, 232),
+					card = Color3.fromRGB(249, 250, 251),
+					lift = Color3.fromRGB(239, 242, 245),
+					fill = Color3.fromRGB(220, 224, 229),
+					line = Color3.fromRGB(201, 207, 214),
 					text = Color3.fromRGB(28, 24, 20),
 					dim = Color3.fromRGB(92, 84, 74),
 					mute = Color3.fromRGB(128, 120, 108),
@@ -1103,7 +1103,7 @@ do
 			Name = "HeadBar",
 			BackgroundColor3 = t3.rail,
 			BorderSizePixel = 0,
-			Size = UDim2.new(1, 0, 0, 82),
+			Size = UDim2.new(1, 0, 0, 58),
 			ZIndex = 11
 		}
         local Frame = Instance.new("Frame")
@@ -1146,8 +1146,8 @@ do
         local t36 = {
 			BackgroundColor3 = t3.rail,
 			BorderSizePixel = 0,
-			Position = UDim2.new(0, 0, 1, -16),
-			Size = UDim2.new(1, 0, 0, 16),
+			Position = UDim2.new(0, 0, 1, -12),
+			Size = UDim2.new(1, 0, 0, 12),
 			ZIndex = 11
 		}
         local Frame4 = Instance.new("Frame")
@@ -1288,7 +1288,7 @@ do
             local t41 = {
 				BackgroundTransparency = 1,
 				Size = UDim2.new(1, 0, 1, -18),
-				Position = UDim2.fromOffset(0, 12),
+				Position = UDim2.fromOffset(0, 8),
 				CanvasSize = UDim2.new(0, 0, 0, 0),
 				AutomaticCanvasSize = Enum.AutomaticSize.Y,
 				ScrollBarThickness = not u42 and 0 or 5,
@@ -1329,7 +1329,7 @@ do
 
             local t43 = {
 				BackgroundTransparency = 1,
-				Size = UDim2.new(1, 0, 0, 40),
+				Size = UDim2.new(1, 0, 0, 48),
 				LayoutOrder = 0,
 				ZIndex = 12
 			}
@@ -1350,8 +1350,8 @@ do
 
             local t44 = {
 				BackgroundTransparency = 1,
-				Position = UDim2.fromOffset(34, 3),
-				Size = UDim2.new(1, -34, 0, 16),
+				Position = UDim2.fromOffset(40, 5),
+				Size = UDim2.new(1, -40, 0, 18),
 				Font = t4.title,
 				Text = t1.Title,
 				TextColor3 = t3.text,
@@ -1386,8 +1386,8 @@ do
 
         local t45 = {
 			BackgroundTransparency = 1,
-			Position = UDim2.fromOffset(34, 20),
-			Size = UDim2.new(1, -34, 0, 12),
+			Position = UDim2.fromOffset(40, 25),
+			Size = UDim2.new(1, -40, 0, 12),
 			Font = t4.mono,
 			Text = t1.Product,
 			TextColor3 = t3.mute,
@@ -1441,7 +1441,7 @@ do
         local t47 = {
 			Name = "Header",
 			BackgroundTransparency = 1,
-			Size = UDim2.new(1, 0, 0, 46),
+			Size = UDim2.new(1, 0, 0, 44),
 			ZIndex = 12,
 			Active = true
 		}
@@ -1461,12 +1461,12 @@ do
 
         local t48 = {
 			BackgroundTransparency = 1,
-			Position = UDim2.fromOffset(14, 8),
+			Position = UDim2.fromOffset(16, 7),
 			Size = UDim2.new(1, -180, 0, 18),
 			Font = t4.title,
 			Text = "Auto Steal",
 			TextColor3 = t3.text,
-			TextSize = 16,
+			TextSize = 15,
 			TextXAlignment = Enum.TextXAlignment.Left,
 			ZIndex = 12
 		}
@@ -1830,7 +1830,7 @@ do
 		})
     end)
 
-    local v253 = not u42 and 80 or 88
+    local v253 = not u42 and 66 or 76
     local t60 = {
 		BackgroundTransparency = 1,
 		Position = UDim2.fromOffset(0, v253),
@@ -1889,28 +1889,43 @@ do
         end
 
         v84(ScrollingFrame, 12, 4, 12, 14)
+        local Columns = Instance.new("Frame")
+        Columns.Name = "Columns"
+        Columns.BackgroundTransparency = 1
+        Columns.Size = UDim2.new(1, 0, 0, 0)
+        Columns.AutomaticSize = Enum.AutomaticSize.Y
+        Columns.ZIndex = 13
+        Columns.Parent = ScrollingFrame
 
-        local t62 = {
-			FillDirection = Enum.FillDirection.Vertical,
-			Padding = UDim.new(0, 8),
-			SortOrder = Enum.SortOrder.LayoutOrder
-		}
-        local UIListLayout = Instance.new("UIListLayout")
+        local function makeColumn(name, position)
+            local column = Instance.new("Frame")
+            column.Name = name
+            column.BackgroundTransparency = 1
+            column.Position = position
+            column.Size = UDim2.new(0.5, -4, 0, 0)
+            column.AutomaticSize = Enum.AutomaticSize.Y
+            column.ZIndex = 13
+            column.Parent = Columns
 
-        if t62 then
-            for k, v in pairs(t62) do
-                UIListLayout[k] = v
-            end
+            local layout = Instance.new("UIListLayout")
+            layout.FillDirection = Enum.FillDirection.Vertical
+            layout.Padding = UDim.new(0, 8)
+            layout.SortOrder = Enum.SortOrder.LayoutOrder
+            layout.Parent = column
+            return column
         end
 
-        if ScrollingFrame then
-            UIListLayout.Parent = ScrollingFrame
-        end
+        local LeftColumn = makeColumn("LeftColumn", UDim2.new(0, 0, 0, 0))
+        local RightColumn = makeColumn("RightColumn", UDim2.new(0.5, 4, 0, 0))
+        RightColumn.Visible = not u42
 
         local t63 = {
 			name = p42,
 			subtitle = p43,
 			scroll = ScrollingFrame,
+			leftColumn = LeftColumn,
+			rightColumn = RightColumn,
+			sectionCount = 0,
 			items = {},
 			n = 0,
 			card = nil,
@@ -1964,7 +1979,7 @@ do
             local t66 = {
 				BackgroundColor3 = t3.rail,
 				BackgroundTransparency = 1,
-				Size = UDim2.new(1, 0, 0, not u42 and 26 or 34),
+				Size = UDim2.new(1, 0, 0, not u42 and 30 or 36),
 				Text = "",
 				AutoButtonColor = false,
 				LayoutOrder = p46 + i,
@@ -2002,7 +2017,7 @@ do
             local v498 = v86(v493, t8[v] or "layers", t3.mute, 13)
 
             v498.Name = "Ico"
-            v498.Position = UDim2.fromOffset(6, 5)
+            v498.Position = UDim2.fromOffset(8, 7)
 
             local t68 = {
 				BackgroundTransparency = 1,
@@ -2153,10 +2168,12 @@ do
 		}
 
         p52.n = p52.n + 1
+        p52.sectionCount = (p52.sectionCount or 0) + 1
         t69.LayoutOrder = p52.n
         t69.ZIndex = 13
 
         local scroll = p52.scroll
+        local parentColumn = (not u42 and p52.sectionCount % 2 == 0) and p52.rightColumn or p52.leftColumn
         local Frame11 = Instance.new("Frame")
 
         if t69 then
@@ -2165,12 +2182,14 @@ do
             end
         end
 
-        if scroll then
+        if parentColumn then
+            Frame11.Parent = parentColumn
+        elseif scroll then
             Frame11.Parent = scroll
         end
 
         local t70 = {
-			CornerRadius = UDim.new(0, 8)
+			CornerRadius = UDim.new(0, 6)
 		}
         local UICorner = Instance.new("UICorner")
 
@@ -2235,7 +2254,7 @@ do
 
         local t73 = {
 			BackgroundTransparency = 1,
-			Size = UDim2.new(1, 0, 0, 26),
+			Size = UDim2.new(1, 0, 0, 24),
 			LayoutOrder = 0,
 			ZIndex = 14
 		}
@@ -2254,7 +2273,7 @@ do
         local t74 = {
 			BackgroundColor3 = t3.accent,
 			BorderSizePixel = 0,
-			Position = UDim2.fromOffset(12, 12),
+			Position = UDim2.fromOffset(12, 10),
 			Size = UDim2.fromOffset(10, 2),
 			ZIndex = 15
 		}
@@ -4722,7 +4741,7 @@ v261("Config", {
     end
 
     local t135 = {
-		CornerRadius = UDim.new(0, 8)
+		CornerRadius = UDim.new(0, 6)
 	}
     local UICorner = Instance.new("UICorner")
 
@@ -5602,7 +5621,7 @@ u305()
 function u44()
     local v1064 = not not u42
 
-    n3 = not v1064 and 152 or 128
+    n3 = not v1064 and 170 or 138
     v151.Size = UDim2.new(0, n3, 1, 0)
     v194.Position = UDim2.fromOffset(n3, 2)
     v194.Size = UDim2.new(1, -n3, 1, -2)
@@ -5619,8 +5638,8 @@ function u44()
         n2 = v1066
         v113.Size = UDim2.fromOffset(v1065, v1066)
     else
-        n1 = 620
-        n2 = 430
+        n1 = 780
+        n2 = 500
         v113.Size = UDim2.fromOffset(n1, n2)
     end
 
@@ -12960,7 +12979,7 @@ end;
             end
 
             local t224 = {
-				CornerRadius = UDim.new(0, 8)
+				CornerRadius = UDim.new(0, 6)
 			}
             local UICorner = Instance.new("UICorner")
 
