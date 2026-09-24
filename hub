@@ -257,7 +257,7 @@ do
                 return math.max(400, v346), math.max(320, v347)
             end
 
-            u42 = v40()
+            u42 = false
             u43 = false
             u44 = nil
 
@@ -1917,7 +1917,7 @@ do
 
         local LeftColumn = makeColumn("LeftColumn", UDim2.new(0, 0, 0, 0))
         local RightColumn = makeColumn("RightColumn", UDim2.new(0.5, 4, 0, 0))
-        RightColumn.Visible = not u42
+        RightColumn.Visible = true
 
         local t63 = {
 			name = p42,
@@ -2522,7 +2522,7 @@ do
 		Flight = true,
 		HopNearNight = true,
 		CfgSaveName = true,
-		PhoneUI = true
+		PhoneUI = false
 	}
 
     v268 = v51().gen or 1
@@ -5280,7 +5280,6 @@ v288(v299, "HookUserId", "User id", "optional", "0", "")
 v281(v299, "HookUsername", "Show my Roblox name and headshot", "", false)
 v281(v299, "ExportUrl", "Let exported configs carry the URL", "off by default", false)
 v263(v300, "Appearance")
-v281(v300, "PhoneUI", "Phone layout", "compact hub for phones / emulators — leave off on PC", u42)
 v282(v300, "UIScale", "UI scale", "zooms the hub — does not crush the layout", 75, 125, 100, "%")
 v287(v300, "Theme", "Theme", "dark or light — mark swaps with the theme", {
 	"Dark",
@@ -5342,11 +5341,7 @@ v289(v300, "ResetWin", "Reset position & size", "window and orb back to the midd
         t10.UIScale.set(100)
     end
 
-    if u42 then
-        Orb.Position = UDim2.new(0, 36, 1, -88)
-    else
-        Orb.Position = UDim2.new(0, 40, 0.5, 0)
-    end
+    Orb.Position = UDim2.new(0, 40, 0.5, 0)
 
     u305()
 end, false)
@@ -5354,9 +5349,9 @@ function t10.UIScale.on(p136)
     v108.Scale = p136 / 100
 end
 function t10.PhoneUI.on(p137)
+    -- Kiki Hub uses one unified layout on every device.
     u43 = true
-    u42 = not not p137
-
+    u42 = false
     if u44 then
         u44()
     end
@@ -5503,20 +5498,23 @@ local v314 = v82("Frame", {
 	AnchorPoint = Vector2.new(1, 1),
 	BackgroundTransparency = 1,
 	Position = UDim2.new(1, 0, 1, 0),
-	Size = UDim2.fromOffset(not u42 and 18 or 32, not u42 and 18 or 32),
+	Size = UDim2.fromOffset(18, 18),
 	ZIndex = 30,
 	Active = true
 }, v113)
-for i = 0, 1 do
-    v82("Frame", {
-		AnchorPoint = Vector2.new(1, 1),
-		Position = UDim2.new(1, -4 - i * 4, 1, -4),
-		Size = UDim2.fromOffset(8 - i * 2, 1),
-		BackgroundColor3 = t3.mute,
-		BorderSizePixel = 0,
-		ZIndex = 31
-	}, v314)
-end
+local ResizeArrow = v82("TextLabel", {
+	AnchorPoint = Vector2.new(0.5, 0.5),
+	Position = UDim2.fromScale(0.5, 0.5),
+	Size = UDim2.fromScale(1, 1),
+	BackgroundTransparency = 1,
+	Text = "↘",
+	Font = t4.body,
+	TextColor3 = t3.mute,
+	TextSize = 15,
+	TextXAlignment = Enum.TextXAlignment.Center,
+	TextYAlignment = Enum.TextYAlignment.Center,
+	ZIndex = 31
+}, v314)
 v314.InputBegan:Connect(function(input)
     local UserInputType = input.UserInputType
 
@@ -5562,8 +5560,8 @@ v73(UserInputService.InputChanged:Connect(function(input)
             Scale = 1
         end
 
-        local v1048 = not u42 and 520 or 400
-        local v1049 = not u42 and 360 or 320
+        local v1048 = 520
+        local v1049 = 360
         local v1050 = math.max(v1048, v1046.X - 24)
         local v1051 = math.max(v1049, v1046.Y - 24)
         local v1052 = math.clamp(AbsoluteSize.X / Scale + v1044.X / Scale, v1048, v1050)
@@ -5600,66 +5598,41 @@ function u305()
         YOffset = n2
     end
 
-    local v1060 = not u42 and 520 or 400
-    local v1061 = not u42 and 360 or 320
+    local v1060 = 520
+    local v1061 = 360
     local v1062 = math.clamp(XOffset, v1060, math.max(v1060, v1057.X - 24))
     local v1063 = math.clamp(YOffset, v1061, math.max(v1061, v1057.Y - 24))
+
+    -- Keep the exact same layout on small screens by uniformly scaling the whole window.
+    local requestedScale = (tonumber(t9.UIScale) or 100) / 100
+    local fitScale = math.min(1, (v1057.X - 24) / math.max(v1062, 1), (v1057.Y - 24) / math.max(v1063, 1))
+    if fitScale <= 0 then fitScale = 1 end
+    v108.Scale = math.min(requestedScale, fitScale)
 
     if v1062 ~= v113.Size.X.Offset or v1063 ~= v113.Size.Y.Offset then
         v113.Size = UDim2.fromOffset(v1062, v1063)
     end
 end
 v108.Scale = (tonumber(t9.UIScale) or 100) / 100
-if u42 then
-    local v316, v317 = v41()
-
-    n1 = v316
-    n2 = v317
-    v113.Size = UDim2.fromOffset(v316, v317)
-end
+u42 = false
 u305()
 function u44()
-    local v1064 = not not u42
-
-    n3 = not v1064 and 170 or 138
+    -- One layout for PC, tablet and phone. Only scale/resize changes; the UI structure does not.
+    u42 = false
+    n3 = 170
     v151.Size = UDim2.new(0, n3, 1, 0)
     v194.Position = UDim2.fromOffset(n3, 2)
     v194.Size = UDim2.new(1, -n3, 1, -2)
-    v217.Size = UDim2.fromOffset(not v1064 and 22 or 32, not v1064 and 22 or 32)
-    v306.Size = UDim2.fromOffset(not v1064 and 34 or 48, not v1064 and 34 or 48)
-    v314.Size = UDim2.fromOffset(not v1064 and 18 or 32, not v1064 and 18 or 32)
-
-    if v1064 then
-        v306.Position = UDim2.new(0, 36, 1, -88)
-
-        local v1065, v1066 = v41()
-
-        n1 = v1065
-        n2 = v1066
-        v113.Size = UDim2.fromOffset(v1065, v1066)
-    else
-        n1 = 780
-        n2 = 500
-        v113.Size = UDim2.fromOffset(n1, n2)
-    end
-
+    v217.Size = UDim2.fromOffset(22, 22)
+    v306.Size = UDim2.fromOffset(34, 34)
+    v314.Size = UDim2.fromOffset(18, 18)
     if u305 then
         u305()
     end
 end
 local function v318()
-    if u43 then
-        return
-    end
-
-    if v40() and not u42 then
-        u42 = true
-        u44()
-
-        if t10.PhoneUI and t10.PhoneUI.set then
-            pcall(t10.PhoneUI.set, true)
-        end
-    end
+    -- Intentionally no device-specific layout switching.
+    u42 = false
 end
 task.defer(v318)
 for _, v in ipairs({
@@ -5689,14 +5662,8 @@ task.spawn(function()
                 return
             end
 
-            if v40() and not u42 then
-                u42 = true
-                u44()
-
-                if t10.PhoneUI and t10.PhoneUI.set then
-                    pcall(t10.PhoneUI.set, true)
-                end
-            end
+            -- Unified Kiki Hub layout: no mobile/PC UI switch.
+            u42 = false
         end
     end)
 
@@ -5704,14 +5671,7 @@ task.spawn(function()
         t14[#t14 + 1] = connection
     end
 
-    if not u43 and v40() and not u42 then
-        u42 = true
-        u44()
-
-        if t10.PhoneUI and t10.PhoneUI.set then
-            pcall(t10.PhoneUI.set, true)
-        end
-    end
+    u42 = false
 end)
 pcall(function()
     local connection = UserInputService:GetPropertyChangedSignal("TouchEnabled"):Connect(v318)
@@ -5737,14 +5697,7 @@ pcall(function()
 
     if CurrentCamera then
         local connection = CurrentCamera:GetPropertyChangedSignal("ViewportSize"):Connect(function()
-            if not u43 and v40() and not u42 then
-                u42 = true
-                u44()
-
-                if t10.PhoneUI and t10.PhoneUI.set then
-                    pcall(t10.PhoneUI.set, true)
-                end
-            end
+            u42 = false
 
             u305()
         end)
@@ -5759,15 +5712,7 @@ pcall(function()
 
         if CurrentCamera2 then
             local connection = CurrentCamera2:GetPropertyChangedSignal("ViewportSize"):Connect(function()
-                if not u43 and v40() and not u42 then
-                    u42 = true
-                    u44()
-
-                    if t10.PhoneUI and t10.PhoneUI.set then
-                        pcall(t10.PhoneUI.set, true)
-                    end
-                end
-
+                u42 = false
                 u305()
             end)
 
@@ -23308,9 +23253,7 @@ end;
         end
     end)()
     pcall(v280, true)
-    if not u43 then
-        u42 = t9.PhoneUI == true
-    end
+    u42 = false
     if u44 then
         u44()
     end
