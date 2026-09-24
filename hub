@@ -384,7 +384,7 @@ do
 			}
             t8 = {
 				About = "info",
-				["Auto Steal"] = "egg",
+				["Trứng"] = "egg",
 				Plot = "grid",
 				Serverhop = "rocket",
 				Misc = "layers",
@@ -1464,7 +1464,7 @@ do
 			Position = UDim2.fromOffset(14, 8),
 			Size = UDim2.new(1, -180, 0, 18),
 			Font = t4.title,
-			Text = "Auto Steal",
+			Text = "Trứng",
 			TextColor3 = t3.text,
 			TextSize = 16,
 			TextXAlignment = Enum.TextXAlignment.Left,
@@ -4679,7 +4679,7 @@ do
     end
 end
 local v294 = v259("About", "Kiki Hub for Steal an Egg")
-local v295 = v259("Auto Steal", "Ngon,Thom,bu")
+local v295 = v259("Trứng", "Ngon,Thom,bu")
 local v296 = v259("Plot", "eggs, pets, upgrades, selling")
 local v297 = v259("Serverhop", "fill a reason, then turn Auto hop on")
 local v298 = v259("Misc", "esp, defence, flight")
@@ -5011,7 +5011,7 @@ v261("Config", {
     return Frame
 end)(v294)
 v263(v294, "Features")
-v293(v294, "Auto Steal", "Snatch eggs and bring them to safe zone")
+v293(v294, "Trứng", "Snatch eggs and bring them to safe zone")
 v293(v294, "Plot", "Place, hatch eggs, auto sell")
 v293(v294, "Serverhop", "Idle, time, or night spawn — Auto hop only leaves if one of those boxes has a number")
 v293(v294, "Misc", "ESP, stats, index claim, anti trap / ragdoll, bat aura, flight, bypass speed, optimizer")
@@ -5056,8 +5056,8 @@ if v291(t1.Support) then
 end
 v263(v294, "Disclaimer")
 v293(v294, "Not official", "Not affiliated with " .. (t1.Game or "this game") .. ". I'm not responsible for any bans, use at your own risk !")
-v263(v295, "Auto steal")
-v281(v295, "AutoSteal", "Auto steal", "idle · took 0 · lost 0 · re-grabbed 0", false, {
+v263(v295, "Trứng")
+v281(v295, "AutoSteal", "Trứng", "idle · took 0 · lost 0 · re-grabbed 0", false, {
 	flag = "StealTravel",
 	options = {
 		"Speed",
@@ -5108,12 +5108,12 @@ v281(v296, "AutoSellPets", "Auto sell pets", "equips then sells at the stall · 
 v281(v296, "AutoSellEggs", "Auto sell eggs", "equips then sells at the stall · spare eggs only — plot eggs stay", false)
 v263(v296, "Treadmill training")
 v281(v296, "AutoTreadmill", "Auto treadmill", "not training · 0/s · earned 0 this session", false)
-v281(v296, "TrainWhenIdle", "Train when nothing to steal", "only when Auto Steal is off. Auto Steal never wears the belt", true)
+v281(v296, "TrainWhenIdle", "Train when nothing to steal", "only when Trứng is off. Trứng never wears the belt", true)
 v282(v296, "ReadyEarly", "Get ready early", "Step earlier to steal", 0, 15, 4, "s before reset")
 v263(v297, "Auto hop")
 v281(v297, "AutoHop", "Auto hop", "off · 0 hops this session", false)
 v263(v297, "Leave when")
-v288(v297, "HopIdle", "No steal for (seconds)", "Auto Steal on, nothing banked. Night does not count. Min 5. Blank = off.", "off · 90", "")
+v288(v297, "HopIdle", "No steal for (seconds)", "Trứng on, nothing banked. Night does not count. Min 5. Blank = off.", "off · 90", "")
 v288(v297, "HopAfter", "Been here (minutes)", "leave after this long no matter what. Min 1. Blank = off.", "off · 20", "")
 v263(v297, "Leave now")
 v289(v297, "HopNow", "Hop now", "one hop. Auto hop can stay off.", "Hop", function()
@@ -5213,7 +5213,7 @@ v287(v298, "ESPFilter", "Show ESP on", nil, {
 	"Eggs matching my filters",
 	"Stolen target only"
 }, "All eggs", false)
-v281(v298, "ESPBeam", "Beam to current target", "line to the egg auto steal picked", false)
+v281(v298, "ESPBeam", "Beam to current target", "line to the egg Trứng picked", false)
 v263(v298, "Eggs on your plot")
 v281(v298, "PlotESP", "Plot egg ESP", "payout and hatch timer — green when ready", false)
 v263(v298, "Stats")
@@ -5223,9 +5223,9 @@ v263(v298, "Defence")
 v281(v298, "AntiTrap", "Anti trap", "Disables traps", false)
 v281(v298, "AntiMob", "Anti ragdoll", "guards and other players' bats cannot flop or knock you; your bat still swings", false)
 v263(v298, "Bat")
-v281(v298, "BatAura", "Bat aura", "swings at any player in range — Auto Steal also equips the bat and chases whoever took your egg", false)
+v281(v298, "BatAura", "Bat aura", "swings at any player in range — Trứng also equips the bat and chases whoever took your egg", false)
 v263(v298, "Walking")
-v281(v298, "BypassSpeed", "Bypass speed", "off = normal walk. on = Bypass cap. Auto steal uses Travel speed only while going to an egg, not while looking", false)
+v281(v298, "BypassSpeed", "Bypass speed", "off = normal walk. on = Bypass cap. Trứng uses Travel speed only while going to an egg, not while looking", false)
 v282(v298, "BypassCap", "Bypass speed cap", "studs per second while walking with bypass on", 150, 1300, 880, " studs/s")
 v263(v298, "Flight")
 v281(v298, "Flight", "Flight", "WASD to fly, Space up, Left Ctrl down — holds altitude when you let go", false)
@@ -5946,7 +5946,7 @@ function u71(p147)
         end
     end
 end
-u68("Auto Steal")
+u68("Trứng")
 local v324 = v50()
 local v325 = v51()
 v325.alive = true
@@ -17144,7 +17144,7 @@ end;
             elseif u2191 then
                 s25 = "eggs · staying"
             elseif v4009 > 0 and t9.AutoHop then
-                s25 = "idle needs Auto Steal"
+                s25 = "idle needs Trứng"
             else
                 s25 = "on"
             end
