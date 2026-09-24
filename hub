@@ -4679,14 +4679,14 @@ do
     end
 end
 local v294 = v259("About", "Kiki Hub for Steal an Egg")
-local v295 = v259("Auto Steal", "targeting, filters, travel")
+local v295 = v259("Auto Steal", "Ngon,Thom,bu")
 local v296 = v259("Plot", "eggs, pets, upgrades, selling")
 local v297 = v259("Serverhop", "fill a reason, then turn Auto hop on")
 local v298 = v259("Misc", "esp, defence, flight")
 local v299 = v259("Webhook", "outbound messages")
 local v300 = v259("Settings", "window and config")
 v261("About", { "About" }, 0)
-v261("Autofarm", { "Auto Steal" }, 10)
+v261("Tự Động", { "Trứng" }, 10)
 v261("Other stuff", {
 	"Plot",
 	"Serverhop",
